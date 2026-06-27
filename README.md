@@ -61,10 +61,10 @@ Methodology: CRISP-DM & Agile Data Science.
 
 [x] Exploratory Data Analysis (EDA)
 
-[ ] SQL for Data Analysis (Next Step)
+[x] SQL for Data Analysis (Next Step)
 
 [ ] Predictive Modeling & Machine Learning
 
-[ ] Interactive Dashboards (Streamlit/Power BI)
+[x] Interactive Dashboards (Streamlit/Power BI)
 
 Status: 🚧 Work in Progress — Turning curiosity into insights, one line of code at a time.
