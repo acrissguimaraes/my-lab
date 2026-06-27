@@ -1,47 +1,46 @@
-# Climate & Energy Data Pipeline - Architecture Medallion 🌍🔋
+# Climate & Energy Data Pipeline - Medallion Architecture 🌍🔋
 
-Este projeto implementa um pipeline de Engenharia de Dados completo utilizando a **Arquitetura Medallion (Bronze, Silver e Gold)** no **Databricks** com **Apache Spark / PySpark**. O objetivo é ingerir, tratar e consolidar dados complexos sobre emissões de CO2, matrizes energéticas globais, anomalias de temperatura e eventos climáticos extremos para geração de insights analíticos.
-
----
-
-## 📁 Estrutura do Pipeline (Notebooks)
-
-O processamento foi dividido em três camadas lógicas para garantir governança e qualidade dos dados:
-
-1. **`01_bronze_layer.ipynb` (Ingestão Raw)**:
-   * Leitura dos arquivos brutos em formato CSV a partir do diretório de dados (`raw-data`).
-   * Preservação do estado original dos dados adicionando metadados cruciais de governança (`ingestion_timestamp`).
-   * Gravação das tabelas no catálogo Delta no formato nativo da camada: `bronze.co2_raw`, `bronze.energy_raw`, `bronze.temperature_raw` e `bronze.climate_raw`.
-
-2. **`02_silver_layer.ipynb` (Limpeza e Padronização)**:
-   * Tratamento de tipos de dados (conversão de strings para formatos nativos de `date`, `timestamp`, `double` e `integer`).
-   * Padronização de nomes de colunas utilizando o padrão *snake_case*.
-   * Enriquecimento simples de dados e tracking temporal através da coluna `silver_timestamp`.
-   * Persistência das tabelas limpas: `silver.co2_emissions`, `silver.energy_mix`, `silver.temperature_anomaly` e `silver.climate_events`.
-
-3. **`03_gold_layer.ipynb` (Camada Analítica / Negócio)**:
-   * Criação de agregados analíticos de alta performance prontos para consumo por ferramentas de BI (Power BI, Tableau) ou dashboards internos.
-   * Cruzamento de dados entre o mix energético e anomalias de temperatura global para responder a perguntas críticas de negócio e estudos climáticos.
+This project implements a complete Data Engineering pipeline using the **Medallion Architecture (Bronze, Silver, and Gold)** in **Databricks** with **Apache Spark / PySpark**. The main goal is to ingest, clean, and consolidate complex data regarding global CO2 emissions, energy mixes, temperature anomalies, and extreme climate events for downstream analytical insights.
 
 ---
 
-## 🛠️ Tecnologias e Padrões Utilizados
+## 📁 Pipeline Structure (Notebooks)
 
-* **Plataforma**: Databricks Lakehouse.
-* **Motor de Processamento**: Apache Spark (PySpark DataFrame API & Spark SQL).
-* **Formato de Armazenamento**: Delta Lake (Transações ACID, Schema Enforcement e Time Travel).
-* **Arquitetura**: Medalhão (Isolamento de estágios de maturação do dado).
+The data processing is divided into three logical layers to ensure robust data governance and quality:
+
+1. **`01_bronze_layer.ipynb` (Raw Ingestion)**:
+   * Reads raw CSV files from the local source data directory (`raw-data`).
+   * Preserves the original state of the source data while appending crucial metadata for audit trails (`ingestion_timestamp`).
+   * Writes the resulting datasets into the Delta catalog using the layer's native naming conventions: `bronze.co2_raw`, `bronze.energy_raw`, `bronze.temperature_raw`, and `bronze.climate_raw`.
+
+2. **`02_silver_layer.ipynb` (Cleaning & Standardization)**:
+   * Handles explicit data type casting (converting string formats into native `date`, `timestamp`, `double`, and `integer` types).
+   * Standardizes column headers across all tables to match the *snake_case* naming convention.
+   * Performs basic data enrichment and maintains processing timelines via a custom `silver_timestamp` tracking column.
+   * Persists clean, validated tables to the catalog: `silver.co2_emissions`, `silver.energy_mix`, `silver.temperature_anomaly`, and `silver.climate_events`.
+
+3. **`03_gold_layer.ipynb` (Analytical / Business Layer)**:
+   * Builds high-performance analytical aggregates ready to be consumed by BI tools (Power BI, Tableau) or business dashboards.
+   * Joins and correlates energy mix evolutions with global temperature anomalies to answer critical environmental impact queries.
 
 ---
 
-## 🧠 Perguntas Frequentes de Arquitetura (FAQ)
+## 🛠️ Tech Stack & Architecture Patterns
 
-### Por que separar o pipeline nas camadas Bronze, Silver e Gold?
-Isso garante o princípio da idempotência e segurança. Se uma regra de negócio mudar na camada Gold, você não precisa re-ingerir os dados brutos da fonte; basta reprocessar a partir da camada Silver ou Bronze, economizando tempo e custos de computação.
+* **Platform**: Databricks Lakehouse.
+* **Processing Engine**: Apache Spark (PySpark DataFrame API & Spark SQL).
+* **Storage Format**: Delta Lake (Supporting ACID transactions, Schema Enforcement, and Time Travel versioning).
+* **Architecture Pattern**: Medallion Framework (Ensuring structured maturity steps for raw data assets).
 
-### Qual a vantagem de salvar os dados como tabelas Delta?
-O formato Delta Lake resolve os problemas de arquivos Parquet ou CSV comuns, pois fornece transações ACID (garante que a escrita termine com sucesso ou falhe por completo sem corromper o dado), permite versionamento dos arquivos (Time Travel) e otimiza as consultas através de índices automáticos do Databricks.
+---
 
-### O Spark SQL e o PySpark operam de forma diferente no cluster?
-Não, por debaixo do capô, ambos utilizam o Catalyst Optimizer do Spark. A escolha entre PySpark e Spark SQL neste projeto foi feita com base na legibilidade: PySpark para pipelines de ETL estruturados (Bronze e Silver) e Spark SQL para queries de agregações analíticas complexas (Gold).
+## 🧠 Architectural FAQ
 
+### Why split the pipeline into Bronze, Silver, and Gold layers?
+This pattern guarantees idempotency and data recovery safety. If business logic rules change at the Gold tier, you do not need to re-ingest raw data from the external source system; you simply replay your calculations starting directly from your Silver or Bronze tables, saving valuable cluster computation time and cost.
+
+### What is the advantage of storing data as Delta tables?
+The Delta Lake storage layer fixes historical pain points associated with raw Parquet or CSV flat files. It provides true ACID transactions (guaranteeing that data writes either complete successfully or fail gracefully without causing data corruption), unlocks data version histories (Time Travel), and leverages native indexing engines built directly into Databricks to speed up complex query executions.
+
+### Do Spark SQL and PySpark run differently on the underlying cluster?
+No. Under the hood, both APIs compile down to the exact same execution instructions via Spark's Catalyst Optimizer. The choice between PySpark and Spark SQL in this project boils down to code readability: PySpark was chosen to handle structured, program
