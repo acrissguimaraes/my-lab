@@ -63,7 +63,7 @@ Methodology: CRISP-DM & Agile Data Science.
 
 [x] SQL for Data Analysis (Next Step)
 
-[ ] Predictive Modeling & Machine Learning
+[x] Predictive Modeling & Machine Learning
 
 [x] Interactive Dashboards (Streamlit/Power BI)
 
