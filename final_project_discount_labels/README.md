@@ -4,6 +4,8 @@
 >
 > An end-to-end analytics project combining data preparation, exploratory analysis, Power BI, store segmentation and predictive modelling to support data-driven commercial decisions.
 
+![Project workflow](images/project_workflow.svg)
+
 ## 🎯 Project Overview
 
 The objective was to analyse discount-label activity across stores and products, identify operational patterns, segment stores according to their behaviour, and build a predictive model to understand factors associated with successful discount-label sales.
@@ -51,12 +53,7 @@ Store behaviour was analysed using **DBSCAN** for outlier detection and **K-Mean
 
 ### 4. Predictive Modelling
 
-Four classification models were evaluated:
-
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
+Four classification models were evaluated: Logistic Regression, Decision Tree, Random Forest and Gradient Boosting.
 
 The final **Random Forest** model achieved on the test set:
 
@@ -112,6 +109,8 @@ final_project_discount_labels/
 ├── README.md
 ├── data/
 ├── images/
+│   ├── project_workflow.svg
+│   └── README.md
 ├── notebooks/
 │   ├── data_cleaning.ipynb
 │   ├── store_segmentation.ipynb
