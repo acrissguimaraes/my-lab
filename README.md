@@ -1,70 +1,166 @@
-🧪 My Lab: Data Science & Business Analytics
-Welcome! This repository serves as a comprehensive hub for my projects, exercises, and research developed throughout the Data Science & Business Analytics program. My goal here is to bridge the gap between technical programming and strategic decision-making.
+# 🧪 My Lab — Data Science & Business Analytics
 
-📚 Learning Path
-1. Python Programming & Logic
-Data Structures: Mastering lists, dictionaries, and tuples for efficient data handling.
+Welcome to **My Lab**, my personal portfolio for Data Science, Business Analytics and Data Analysis projects.
 
-Control Flow: Building robust logic with loops, conditionals, and custom functions.
+This repository brings together practical projects developed throughout my Data Science & Business Analytics journey, with a focus on transforming raw data into meaningful insights, visualizations and business recommendations.
 
-Clean Code: Writing readable, modular, and maintainable Python scripts.
+My goal is to combine **technical data skills with business thinking** — using data not only to understand what happened, but also to identify opportunities, support decisions and improve performance.
 
-2. Data Engineering & Manipulation (Pandas & NumPy)
-ETL Processes: Extracting, Transforming, and Loading data from diverse sources (CSV, Excel, SQL).
+---
 
-Data Wrangling: Advanced cleaning (handling missing values, outliers) and data normalization.
+## 📊 What You'll Find Here
 
-Feature Engineering: Deriving new metrics to uncover hidden patterns.
+The repository includes projects covering different stages of the data analytics workflow:
 
-Advanced Aggregations: Utilizing groupby and pivot tables for executive summaries.
+- Data cleaning and preparation
+- Exploratory Data Analysis (EDA)
+- Business and KPI analysis
+- Data visualization and storytelling
+- Dashboard development
+- SQL data analysis
+- Customer and operational analytics
+- Machine Learning and predictive modelling
+- Clustering and segmentation
+- Business recommendations
 
-3. Business Intelligence & Data Viz (Seaborn, Matplotlib & Power BI)
-Data Storytelling: Designing charts that communicate insights, not just numbers.
+Each project is structured to document the problem, analytical approach, tools used and key findings.
 
-Visual Analytics: Using heatmaps, correlation matrices, and distribution plots.
+---
 
-Customization: Applying professional formatting (labels, legends, and the "Rotation Trick") for maximum clarity.
+## 🚀 Featured Project
 
-4. Strategic Business Analytics
-CRISP-DM Methodology: Standardizing the workflow from Business Understanding to Deployment.
+### Discount Label Optimization — End-to-End Data Analytics Project
 
-KPI Frameworks: Defining and tracking Key Performance Indicators that drive ROI.
+An end-to-end analytics project focused on understanding the performance of discounted products and identifying opportunities to improve sales and reduce waste.
 
-Problem Solving: Translating complex business pain points into actionable data queries.
+**Key components:**
 
-🚀 Featured Project: HR Analytics (Employee Attrition)
-A deep dive into IBM's HR dataset to diagnose why talent leaves and how to improve retention.
+- Cleaned and integrated **150K+ records**
+- Analyzed performance across **300+ stores**
+- Developed KPIs and interactive dashboards in **Power BI**
+- Applied **DBSCAN and K-Means** to segment stores based on performance
+- Compared multiple classification models
+- Built a **Random Forest** predictive model
+- Evaluated model performance using F1-score and ROC-AUC
+- Translated analytical findings into business recommendations
 
-Key Deliverables:
+**Final model performance:**
 
-Turnover Diagnostics: Calculated attrition rates across different departments and roles.
+- **F1-score:** 0.728
+- **ROC-AUC:** 0.763
 
-Multivariate Analysis: Explored the correlation between work-life balance, monthly income, and employee loyalty.
+The project demonstrates an end-to-end workflow from raw data preparation to business insights and predictive modelling.
 
-Actionable Insights: Provided data-backed recommendations to reduce hiring costs and retain high-performers.
+👉 **[View the full project](./final_project_discount_labels/)**
 
-"Data is the new oil, but Business Analytics is the refinery that turns it into fuel for growth."
+---
 
-🛠️ Tech Stack
-Language: Python 🐍
+## 📚 Analytics & Technical Skills
 
-Data Analysis: Pandas, NumPy.
+### 🐍 Python
 
-Visualization: Matplotlib, Seaborn, Plotly.
+Developing practical Python skills for data analysis and automation, including:
 
-Environment: Microsoft Fabric / Jupyter Notebooks / VS Code.
+- Data structures
+- Functions and control flow
+- Data manipulation
+- Data cleaning
+- Exploratory Data Analysis
+- Feature engineering
+- Statistical analysis
+- Machine Learning
 
-Methodology: CRISP-DM & Agile Data Science.
+### 🧹 Data Preparation & Analysis
 
-📈 Roadmap & Progress
-[x] Python Fundamentals & Data Manipulation
+Working with real-world datasets and preparing them for analysis through:
 
-[x] Exploratory Data Analysis (EDA)
+- Missing value treatment
+- Duplicate detection
+- Outlier analysis
+- Data validation
+- Data normalization
+- Data type transformation
+- Data integration and merging
+- Feature creation
 
-[x] SQL for Data Analysis (Next Step)
+### 🐼 Pandas & NumPy
 
-[x] Predictive Modeling & Machine Learning
+Using Pandas and NumPy for:
 
-[x] Interactive Dashboards (Streamlit/Power BI)
+- Data manipulation
+- Aggregations
+- GroupBy analysis
+- Pivot tables
+- Dataset integration
+- Feature engineering
+- Statistical calculations
 
-Status: 🚧 Work in Progress — Turning curiosity into insights, one line of code at a time.
+### 📊 Business Intelligence & Data Visualization
+
+Using visualization to communicate insights clearly and support decision-making.
+
+**Tools:**
+
+- Power BI
+- Matplotlib
+- Seaborn
+- Plotly
+- Excel
+
+Key areas include:
+
+- KPI dashboards
+- Trend analysis
+- Performance analysis
+- Distribution analysis
+- Correlation analysis
+- Business storytelling
+- Interactive reporting
+
+### 🗄️ SQL
+
+Using SQL for data exploration and analysis, including:
+
+- Data querying
+- Filtering and aggregation
+- Joins
+- Grouping
+- KPI calculations
+- Business-oriented data analysis
+
+### 🤖 Machine Learning
+
+Practical experience with supervised and unsupervised learning techniques, including:
+
+- K-Means
+- DBSCAN
+- Logistic Regression
+- Decision Trees
+- Random Forest
+- Gradient Boosting
+- Classification model evaluation
+- Cross-validation
+- Feature importance
+
+---
+
+## 🧠 Business Analytics Approach
+
+My projects follow a structured analytical approach inspired by the **CRISP-DM methodology**:
+
+```text
+Business Understanding
+        ↓
+Data Understanding
+        ↓
+Data Preparation
+        ↓
+Exploratory Data Analysis
+        ↓
+Modelling
+        ↓
+Evaluation
+        ↓
+Business Insights
+        ↓
+Recommendations
