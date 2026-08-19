@@ -110,7 +110,8 @@ final_project_discount_labels/
 ├── data/
 ├── images/
 │   ├── project_workflow.svg
-│   └── README.md
+│   └── power bi 1
+│   └── power bi 2
 ├── notebooks/
 │   ├── data_cleaning.ipynb
 │   ├── store_segmentation.ipynb
@@ -118,7 +119,6 @@ final_project_discount_labels/
 │   └── README.md
 ├── powerbi/
 ├── results/
-└── portfolio_note.md
 ```
 
 ### Data policy
